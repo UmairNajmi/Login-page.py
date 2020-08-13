@@ -1,0 +1,37 @@
+# In this we will create a login page. 'Username',  'Password'
+# My All code in comment out
+import sys
+from PyQt5.QtWidgets import QWidget,QApplication,QPushButton,QLineEdit
+
+class App(QWidget):
+    # This is like main which is automatically triggered when you create an instance of a class
+    # 'def' is used to define a method
+    # 'self' mean current object or instance or class
+    def __init__(self):
+        super().__init__()
+        self.title = "Umair Najmi"
+        self.top = 100
+        self.left = 100
+        self.width = 400
+        self.height = 400
+        self.initMyUI()
+    def initMyUI (self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(self.top,self.left,self.height,self.width)
+        txt_username = QLineEdit(self)
+        txt_username.setPlaceholderText("username")
+        txt_username.move(100,100)
+        txt_password = QLineEdit(self)
+        txt_password.setPlaceholderText("Password")
+        txt_password.move(100,150)
+        btn = QPushButton("Click me",self)
+        btn.move(100,200)
+        btn.clicked.connect(self.on_click)
+        self.show()
+    def on_click(self):
+        print("hello python world")
+if __name__ =="__main__":
+    app = QApplication(sys.argv)
+    ex = App()
+
+    sys.exit(app.exec_())
